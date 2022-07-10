@@ -1,0 +1,31 @@
+{
+  "name": "acode-plugin",
+  "version": "1.0.2",
+  "description": "Template for Acode plugin",
+  "main": "dist/main.js",
+  "repository": "https://github.com/deadlyjack/acode-plugin.git",
+  "author": "Ajit <me@ajitkumar.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "html-tag-js": "^1.0.4",
+    "sass-loader": "^13.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "^7.0.1",
+    "postcss-loader": "^7.0.0",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
