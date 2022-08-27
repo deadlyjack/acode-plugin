@@ -46,13 +46,13 @@ You also need to set an unmount function, this is called when user choose to uni
 
 ## Plugin Development
 
-You can take reference from already available plugins [acode-plugin-python](https://github.com/deadlyjack/acode-plugin-python) and [acode-plugin-prettier](https://github.com/deadlyjack).
+You can take reference from already available plugins [acode-plugin-python](https://github.com/deadlyjack/acode-plugin-python) and [acode-plugin-prettier](https://github.com/deadlyjack/acode-plugin-prettier).
 
 ## Testing
 
 1. To test your plugin clone [Acode](https://github.com/deadlyjack/acode) repository.
 
-2. Change your local IP in [this](https://github.com/deadlyjack/Acode/blob/main/res/network_security_config.xml#L11) file.
+2. Change your local IP in [this](https://github.com/deadlyjack/Acode/blob/main/res/android/xml/network_security_config.xml#L11) file.
 
 3. Add your local plugin [here](https://github.com/deadlyjack/Acode/blob/main/src/pages/plugins/plugins.include.js#L133).
 
@@ -68,7 +68,7 @@ You can take reference from already available plugins [acode-plugin-python](http
 - Build tools version 29
 - [Java 1.8](https://www.oracle.com/in/java/technologies/javase/javase8-archive-downloads.html)
 
-To test your plugin clone [Acode](https://github.com/deadlyjack/acode) repository. Add your local IPV4 to [res/network_security_config.xml](https://github.com/deadlyjack/Acode/blob/main/res/network_security_config.xml#L11) file. Use VS Code live server to serve your plugin files via localhost or use any other server to host your local plugin. Add your local plugin to [src/pages/plugins/plugins.include.js](https://github.com/deadlyjack/Acode/blob/main/src/pages/plugins/plugins.include.js#L133) file. This will load your local plugin in `settings -> plugins`.
+To test your plugin clone [Acode](https://github.com/deadlyjack/acode) repository. Add your local IPV4 to [res/android/xml/network_security_config.xml](https://github.com/deadlyjack/Acode/blob/main/res/android/xml/network_security_config.xml#L11) file. Use VS Code live server to serve your plugin files via localhost or use any other server to host your local plugin. Add your local plugin to [src/pages/plugins/plugins.include.js](https://github.com/deadlyjack/Acode/blob/main/src/pages/plugins/plugins.include.js#L133) file. This will load your local plugin in `settings -> plugins`.
 
 ## Global API
 
