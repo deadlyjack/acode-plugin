@@ -29,6 +29,9 @@
   "scripts": {
     "build": "webpack"
   },
+  "browserslist": [
+    "> 0.25%, not dead"
+  ],
   "resolutions": {
     "terser": ">=5.14.2 "
   }
