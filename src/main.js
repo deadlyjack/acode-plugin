@@ -1,4 +1,4 @@
-const pluginId = 'acode.plugin';
+import plugin from '../plugin.json';
 
 class AcodePlugin {
 
@@ -12,15 +12,15 @@ class AcodePlugin {
 }
 
 if (window.acode) {
-  const plugin = new AcodePlugin();
-  acode.setPluginInit(pluginId, (baseUrl, $page, { cacheFileUrl, cacheFile }) => {
+  const acodePlugin = new AcodePlugin();
+  acode.setPluginInit(plugin.id, (baseUrl, $page, { cacheFileUrl, cacheFile }) => {
     if (!baseUrl.endsWith('/')) {
       baseUrl += '/';
     }
-    plugin.baseUrl = baseUrl;
-    plugin.init($page, cacheFile, cacheFileUrl);
+    acodePlugin.baseUrl = baseUrl;
+    acodePlugin.init($page, cacheFile, cacheFileUrl);
   });
-  acode.setPluginUnmount(pluginId, () => {
-    plugin.destroy();
+  acode.setPluginUnmount(plugin.id, () => {
+    acodePlugin.destroy();
   });
 }
