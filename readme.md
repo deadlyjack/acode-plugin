@@ -46,7 +46,7 @@ You also need to set an unmount function, this is called when user choose to uni
 
 ## Plugin Development
 
-You can take reference from already available plugins [acode-plugin-python](https://github.com/deadlyjack/acode-plugin-python) and [acode-plugin-prettier](https://github.com/deadlyjack).
+You can take reference from already available plugins [acode-plugin-python](https://github.com/deadlyjack/acode-plugin-python), [acode-plugin-prettier](https://github.com/deadlyjack) and [acode-plugin-snippets](https://github.com/deadlyjack/acode-plugin-snippets).
 
 ## Testing
 
