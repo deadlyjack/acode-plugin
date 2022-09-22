@@ -1,26 +1,27 @@
 # acode-plugin
 
 To create plugin for Acode editor use this template. To use this template create a github repository and add `https://github.com/deadlyjack/acode-plugin` as template.
+
 <details open>
 <summary><h2 style="display:inline;" id="toc">Table of Contents</h2></summary>
 
-* [Required Files of a plugin](#required-files)
-* [How to add a plugin to Acode](#add-your-plugin-to-acode)
-* [Available plugin references](#plugin-development)
-* [How to test a plugin](#testing)
-    - [Requirement](#requirement)
-* [Global APIs](#global-apis)
-    - [editorManager](#editormanager)
-    - [acode](#acode)
-    - [actionStack](#actionstack)
-    - [appSettings](#appsettings)
-        - [Events](#events)
-    - [Toast](#show-toast)
-    - [Data Storage](#data-storage)
-    - [Cache Storage](#cache-storage)
-* [Native APIs](#native-apis)
-    - [FsOperation](#fsoperation)
-    - [WcPage](#wcpage)
+- [Required Files of a plugin](#required-files)
+- [How to add a plugin to Acode](#add-your-plugin-to-acode)
+- [Available plugin references](#plugin-development)
+- [How to test a plugin](#testing)
+  - [Requirement](#requirement)
+- [Global APIs](#global-apis)
+  - [editorManager](#editormanager)
+  - [acode](#acode)
+  - [actionStack](#actionstack)
+  - [appSettings](#appsettings)
+    - [Events](#events)
+  - [Toast](#show-toast)
+  - [Data Storage](#data-storage)
+  - [Cache Storage](#cache-storage)
+- [Native APIs](#native-apis)
+  - [FsOperation](#fsoperation)
+  - [WcPage](#wcpage)
 
 </details>
 
