@@ -16,6 +16,7 @@ async function main() {
     open: false,
     port,
     host,
+    cors: true,
     root: '../',
     ignore: 'node_modules,platforms,plugins',
     file: 'index.html',
