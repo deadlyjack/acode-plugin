@@ -16,6 +16,7 @@
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "live-server": "^1.2.2",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss": "^8.4.16",
     "postcss-loader": "^7.0.1",
@@ -27,7 +28,9 @@
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "build-release": "webpack --mode release",
+    "start-dev": "node .vscode/start-dev"
   },
   "browserslist": [
     "> 0.25%, not dead"

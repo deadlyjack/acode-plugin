@@ -94,7 +94,7 @@ The global variables that you can use them directly in your plugin.
   - `type: string` type of test (uri | id | name | git | gist).
 
 - `switchFile(id: string): void` switch tab to given file id.
-- `activeFile: File` current file.
+- `activeFile:` [File](https://github.com/deadlyjack/Acode/blob/main/src/lib/editorFile.js) current file.
 - `hasUnsavedFiles(): number` get the number of unsaved files.
 - `files: Array<File>` list of all files.
 - `setSubText(file: File): void` sets sub text of the header i.e. location of the file.
