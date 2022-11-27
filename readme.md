@@ -154,6 +154,20 @@ The global variables that you can use them directly in your plugin.
 - `setPluginUnmount(id: string, unmountFunction(): void)`
 - `registerFormatter(id: string, externsions: Array<string>, format():Promise<void>)`
 - `fsOperation(file: string): FsOperation`
+- `require(moduleName): Module` **Available modules**
+
+  - [fs](https://github.com/deadlyjack/Acode/blob/main/src/fileSystem/fsOperation.js)
+  - [projects](https://github.com/deadlyjack/Acode/blob/main/src/lib/projects.js)
+  - [selectionMenu](https://github.com/deadlyjack/Acode/blob/main/src/lib/selectionMenu.js)
+  - [alert](https://github.com/deadlyjack/Acode/blob/main/src/components/dialogboxes/alert.js)
+  - [confirm](https://github.com/deadlyjack/Acode/blob/main/src/components/dialogboxes/confirm.js)
+  - [multiPrompt](https://github.com/deadlyjack/Acode/blob/main/src/components/dialogboxes/multiprompt.js)
+  - [prompt](https://github.com/deadlyjack/Acode/blob/main/src/components/dialogboxes/prompt.js)
+  - [select](https://github.com/deadlyjack/Acode/blob/main/src/components/dialogboxes/select.js)
+  - [loader](https://github.com/deadlyjack/Acode/blob/main/src/components/dialogs.js#L10)
+  - [fileBrowser](https://github.com/deadlyjack/Acode/blob/main/src/pages/fileBrowser/fileBrowser.include.js#L46)
+  - [toInternalUrl](https://github.com/deadlyjack/Acode/blob/main/src/utils/helpers.js#L793)
+  - [Url](https://github.com/deadlyjack/Acode/blob/main/src/utils/Url.js)
 
 ### actionStack
 
@@ -224,7 +238,7 @@ To get more info api provided by these plugins see there `js` files in `www` dir
 [:arrow_up: TOC](#toc)
 
 - `lsDir(): Promise<Array<Entry>>`
-- `readFile(encoding: string | ArrayBuffer): Promise<string | ArrayBuffer>`
+- `readFile(encoding: string): Promise<string | ArrayBuffer>`
 - `createFile(name: string, content?: string): Promise<string>`
 - `writeFile(content: string | ArrayBuffer): Promise<void>`
 - `createDirectory(name: string): Promise<string>`
