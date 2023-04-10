@@ -1,5 +1,5 @@
 
-export default class Acode {
+export default class acode {
     /**
      * Define a module
      * @param {string} name
@@ -56,7 +56,7 @@ export default class Acode {
     
     addIcon(className: string, src: string): void;
     
-    async prompt(
+    prompt(
         message: string,
         defaultValue: string,
         type: 'textarea' | 'text' | 'number' | 'tel' | 'search' | 'email' | 'url',
@@ -68,11 +68,11 @@ export default class Acode {
         }
     ): Promise<any>;
     
-    async confirm(title: string, message: string): Promise<boolean>;
+    confirm(title: string, message: string): Promise<boolean>;
     
-    async select(
+    select(
         title: string,
-        options: string[value: string, text: string, icon: string, disable?: boolean] | string,
+        options: string[string, string, string, boolean] | string,
         opts?: {
             onCancel?: () => void;
             onHide?: () => void;
@@ -86,9 +86,9 @@ export default class Acode {
 
     type Strings = string[];
     
-    async multiPrompt(title: string, inputs: Array<Input | Input[]>, help: string): Promise<Strings>;
+    multiPrompt(title: string, inputs: Array<Input | Input[]>, help: string): Promise<Strings>;
     
-    async fileBrowser(mode: 'file' | 'folder' | 'both', info: string, doesOpenLast: boolean): Promise<import('.').SelectedFile>;
+    fileBrowser(mode: 'file' | 'folder' | 'both', info: string, doesOpenLast: boolean): Promise<import('.').SelectedFile>;
     
-    async toInternalUrl(url:string): Promise<url: string>;
+    toInternalUrl(url:string): Promise<url: string>;
 }
