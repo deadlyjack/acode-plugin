@@ -1,24 +1,94 @@
-declare module 'acode' {
-  type Module = Object | Function;
 
-  interface Acode {
-    define(name: string, module: Module): void;
-    require(module: string): Module | undefined;
-    exec(key: string, val?: any): boolean | undefined;
-    readonly exitAppMessage: string | undefined;
+export default class Acode {
+    /**
+     * Define a module
+     * @param {string} name
+     * @param {Object|function} module
+     */
+    define(name: string, module: any): void;
+
+    require(module: string): any;
+
+    exec(key: string, val: any): boolean | undefined;
+
+    get exitAppMessage(): string | undefined;
+
     setLoadingMessage(message: string): void;
-    setPluginInit(id: string, initFunction: Function, settings: any): void;
-    getPluginSettings(id: string): any;
-    setPluginUnmount(id: string, unmountFunction: Function): void;
-    initPlugin(id: string, baseUrl: Url, $page: HTMLElement, options: any): Promise<void>;
-    unmountPlugin(id: string): void;
-    registerFormatter(id: string, extensions: string[], format: () => Promise<void>): void;
-    unregisterFormatter(id: string): void;
-    format(selectIfNull?: boolean): Promise<void>;
-    fsOperation(file: string): FileSystem;
-    newEditorFile(filename: string, options?: any): EditorFile;
-  }
 
-  const acode: Acode;
-  export default acode;
+    setPluginInit(id: string, initFunction: (baseUrl: string, $page: HTMLElement, options?: any) => Promise<void>, settings: any): void;
+
+    getPluginSettings(id: string): any;
+
+    setPluginUnmount(id: string, unmountFunction: () => void): void;
+
+    /**
+     * @param {string} id plugin id
+     * @param {string} baseUrl local plugin url
+     * @param {HTMLElement} $page
+     */
+    initPlugin(id: string, baseUrl: string, $page: HTMLElement, options?: any): Promise<void>;
+
+    unmountPlugin(id: string): void;
+
+    registerFormatter(id: string, extensions: string[], format: () => Promise<void>): void;
+
+    unregisterFormatter(id: string): void;
+
+    format(selectIfNull?: boolean): Promise<void>;
+
+    fsOperation(file: string): any;
+
+    newEditorFile(filename: string, options?: any): void;
+
+    // readonly formatters(): { id: string; name: string; exts: string[] }[];
+
+    /**
+     * @param {string[]} extensions
+     * @returns {Array<[id: string, name: string]>} options
+     */
+    getFormatterFor(extensions: string[]): [id: string, name: string][];
+
+    alert(title: string, message: string, onhide: ()=>void): void;
+    
+    loader(title: string, message: string, cancel: { timeout: number,callback: ()=>void }): void;
+    
+    joinUrl(...args: string): string;
+    
+    addIcon(className: string, src: string): void;
+    
+    async prompt(
+        message: string,
+        defaultValue: string,
+        type: 'textarea' | 'text' | 'number' | 'tel' | 'search' | 'email' | 'url',
+        options?: {
+            match: RegExp,
+            required: boolean,
+            placeholder: string,
+            test: (any)=>boolean
+        }
+    ): Promise<any>;
+    
+    async confirm(title: string, message: string): Promise<boolean>;
+    
+    async select(
+        title: string,
+        options: string[value: string, text: string, icon: string, disable?: boolean] | string,
+        opts?: {
+            onCancel?: () => void;
+            onHide?: () => void;
+            hideOnSelect?: boolean;
+            textTransform?: boolean;
+            default?: string;
+        } | rejectOnCancel: boolean
+    ): Promise<any>;
+    
+    type Input = string;
+
+    type Strings = string[];
+    
+    async multiPrompt(title: string, inputs: Array<Input | Input[]>, help: string): Promise<Strings>;
+    
+    async fileBrowser(mode: 'file' | 'folder' | 'both', info: string, doesOpenLast: boolean): Promise<import('.').SelectedFile>;
+    
+    async toInternalUrl(url:string): Promise<url: string>;
 }
