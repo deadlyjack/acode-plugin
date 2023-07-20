@@ -1,5 +1,9 @@
+type Input = string;
+type Strings = string[];
 
-export default class acode {
+declare var acode: Acode;
+
+interface Acode {
     /**
      * Define a module
      * @param {string} name
@@ -15,7 +19,11 @@ export default class acode {
 
     setLoadingMessage(message: string): void;
 
-    setPluginInit(id: string, initFunction: (baseUrl: string, $page: HTMLElement, options?: any) => Promise<void>, settings: any): void;
+    setPluginInit(
+        id: string,
+        initFunction: (baseUrl: string, $page: HTMLElement, options?: any) => Promise<void>,
+        settings?: any
+    ): void;
 
     getPluginSettings(id: string): any;
 
@@ -52,7 +60,7 @@ export default class acode {
     
     loader(title: string, message: string, cancel: { timeout: number,callback: ()=>void }): void;
     
-    joinUrl(...args: string): string;
+    joinUrl(...args: string[]): string;
     
     addIcon(className: string, src: string): void;
     
@@ -72,23 +80,41 @@ export default class acode {
     
     select(
         title: string,
-        options: string[string, string, string, boolean] | string,
+        options: [string, string, string, boolean][] | string,
         opts?: {
             onCancel?: () => void;
             onHide?: () => void;
             hideOnSelect?: boolean;
             textTransform?: boolean;
             default?: string;
-        } | rejectOnCancel: boolean
+        } | boolean
     ): Promise<any>;
-    
-    type Input = string;
-
-    type Strings = string[];
     
     multiPrompt(title: string, inputs: Array<Input | Input[]>, help: string): Promise<Strings>;
     
-    fileBrowser(mode: 'file' | 'folder' | 'both', info: string, doesOpenLast: boolean): Promise<import('.').SelectedFile>;
+    fileBrowser(mode: 'file' | 'folder' | 'both', info: string, doesOpenLast: boolean): Promise<
+    | {
+        name: string;
+        type: 'file';
+        url: string;
+      }
+    | {
+        list: {
+          icon: string;
+          isDirectory: boolean;
+          isFile: boolean;
+          mime: string;
+          name: string;
+          type: 'file' | 'folder';
+          uri: string;
+          url: string;
+        }[];
+        scroll: number;
+        name: string;
+        type: 'folder';
+        url: string;
+      }
+    >;
     
-    toInternalUrl(url:string): Promise<url: string>;
+    toInternalUrl(url: string): Promise<string>;
 }
