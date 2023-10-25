@@ -7,7 +7,8 @@
   "author": "Ajit <me@ajitkumar.dev>",
   "license": "MIT",
   "dependencies": {
-    "html-tag-js": "^1.1.41"
+    "html-tag-js": "^1.1.41",
+    "@types/ace": "^0.0.50"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",

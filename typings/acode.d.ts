@@ -1,7 +1,51 @@
-type Input = string;
 type Strings = string[];
-
 declare var acode: Acode;
+
+
+interface WCPage extends HTMLElement {
+    on(event: 'hide' | 'show', cb: (this: WCPage) => void): void;
+    off(event: 'hide' | 'show', cb: (this: WCPage) => void): void;
+    
+    settitle(title: string): void;
+    
+    id: string;
+    
+    hide(): void;
+    show(): void;
+    
+    get body(): HTMLElement | null;
+    set body($el: HTMLElement | null);
+    
+    get innerHTML(): string;
+    set innerHTML(html: string);
+    
+    get textContent(): string | null;
+    set textContent(text: string);
+    
+    get lead(): HTMLElement;
+    set lead($el: HTMLElement);
+    
+    get header(): HTMLElement;
+    set header($el: HTMLElement);
+}
+
+interface Input {
+    id: string;
+    required?: boolean;
+    type: string;
+    match?: RegExp;
+    value?: string;
+    placeholder?: string;
+    hints?: string;
+    name?: string;
+    disabled?: boolean;
+    readOnly?: boolean;
+    autofocus?: boolean;
+    hidden?: boolean;
+    onclick?: (event: Event) => void;
+    onchange?: (event: Event) => void;
+}
+
 
 interface Acode {
     /**
@@ -21,7 +65,7 @@ interface Acode {
 
     setPluginInit(
         id: string,
-        initFunction: (baseUrl: string, $page: HTMLElement, options?: any) => Promise<void>,
+        initFunction: (baseUrl: string, $page: WCPage, options?: any) => Promise<void>,
         settings?: any
     ): void;
 
@@ -32,9 +76,9 @@ interface Acode {
     /**
      * @param {string} id plugin id
      * @param {string} baseUrl local plugin url
-     * @param {HTMLElement} $page
+     * @param {WCPage} $page
      */
-    initPlugin(id: string, baseUrl: string, $page: HTMLElement, options?: any): Promise<void>;
+    initPlugin(id: string, baseUrl: string, $page: WCPage, options?: any): Promise<void>;
 
     unmountPlugin(id: string): void;
 
@@ -72,7 +116,7 @@ interface Acode {
             match: RegExp,
             required: boolean,
             placeholder: string,
-            test: (any)=>boolean
+            test: (value: string)=>boolean
         }
     ): Promise<any>;
     
