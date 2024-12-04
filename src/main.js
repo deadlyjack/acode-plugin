@@ -2,19 +2,16 @@ import plugin from '../plugin.json';
 
 class AcodePlugin {
   constructor() {
-    this.webview = null; // Store the reference to the webview
+    this.webview = null; // Reference to the webview
   }
 
   async init($page, cacheFile, cacheFileUrl) {
-    // Create a floating webview container
-    this.createFloatingWebview();
-
-    // Add a test URL for the webview
-    this.loadWebviewURL('https://example.com');
+    // Register the command to open the browser
+    this.registerCommand();
   }
 
   async destroy() {
-    // Clean up by removing the webview
+    // Clean up the floating webview
     if (this.webview) {
       this.webview.remove();
       this.webview = null;
@@ -22,10 +19,10 @@ class AcodePlugin {
   }
 
   createFloatingWebview() {
-    // Check if a webview already exists
+    // Prevent duplicate webviews
     if (this.webview) return;
 
-    // Create a floating div for the webview
+    // Create a floating div container for the webview
     this.webview = document.createElement('div');
     this.webview.style.position = 'fixed';
     this.webview.style.top = '10%';
@@ -75,6 +72,20 @@ class AcodePlugin {
       if (iframe) {
         iframe.src = url;
       }
+    }
+  }
+
+  registerCommand() {
+    if (window.acode) {
+      // Add a command to open the browser
+      acode.addCommand({
+        name: 'Open Floating Browser',
+        description: 'Open a browser in a floating window',
+        exec: () => {
+          this.createFloatingWebview();
+          this.loadWebviewURL('https://www.google.com'); // Default URL
+        },
+      });
     }
   }
 }
