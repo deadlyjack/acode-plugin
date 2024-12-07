@@ -3,11 +3,11 @@ import plugin from '../plugin.json';
 class AcodePlugin {
 
   async init() {
-
+    // plugin initialisation 
   }
 
   async destroy() {
-
+    // plugin clean up
   }
 }
 

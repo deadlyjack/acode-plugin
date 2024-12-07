@@ -1,7 +1,7 @@
 {
   "id": "acode.plugin",
   "name": "Plugin",
-  "main": "dist/main.js",
+  "main": "main.js",
   "version": "1.0.0",
   "readme": "readme.md",
   "icon": "icon.png",
