@@ -4,19 +4,19 @@
   "description": "Template for Acode plugin",
   "main": "src/main.js",
   "repository": "https://github.com/Acode-Foundation/acode-plugin.git",
-  "author": "Ajit <me@ajitkumar.dev>",
+  "author": "Acode Foundation",
   "license": "MIT",
   "dependencies": {
     "@types/ace": "^0.0.50",
     "html-tag-js": "^1.1.41"
   },
   "devDependencies": {
-    "jszip": "^3.10.1",
-    "vite": "^6.0.3"
+    "esbuild": "^0.24.0",
+    "jszip": "^3.10.1"
   },
   "scripts": {
-    "dev": "vite build --watch & vite",
-    "build": "vite build"
+    "dev": "node esbuild.config.mjs --serve",
+    "build": "node esbuild.config.mjs"
   },
   "browserslist": "cover 100%,not android < 5"
 }
